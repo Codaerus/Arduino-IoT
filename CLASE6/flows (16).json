@@ -1,0 +1,486 @@
+[
+    {
+        "id": "2de3887b514c8a1f",
+        "type": "inject",
+        "z": "5f7d05320f95558c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "14",
+        "payloadType": "num",
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "47c5e2322808f1fa"
+            ]
+        ]
+    },
+    {
+        "id": "2f098d9055197c5c",
+        "type": "debug",
+        "z": "5f7d05320f95558c",
+        "name": "debug 61",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "47c5e2322808f1fa",
+        "type": "function",
+        "z": "5f7d05320f95558c",
+        "name": "function 52",
+        "func": "if (msg.payload >= 11){\n    msg.payload = \"Aprobado\";\n    return msg;\n}\nelse{\n    msg.payload = \"Desaprobado\";\n    return msg; \n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "2f098d9055197c5c"
+            ]
+        ]
+    },
+    {
+        "id": "67dd18cc4cf37cb8",
+        "type": "inject",
+        "z": "5f7d05320f95558c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "47c5e2322808f1fa"
+            ]
+        ]
+    },
+    {
+        "id": "a1b01540f5e0a144",
+        "type": "ui-switch",
+        "z": "5f7d05320f95558c",
+        "name": "",
+        "label": "switch",
+        "group": "347bb717cccaa3c2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "a",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "b",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 350,
+        "y": 380,
+        "wires": [
+            [
+                "18e7a45f39125fc9",
+                "7561245e97fcd36c"
+            ]
+        ]
+    },
+    {
+        "id": "18e7a45f39125fc9",
+        "type": "ui-text",
+        "z": "5f7d05320f95558c",
+        "group": "347bb717cccaa3c2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 490,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a53ac06eccf3b45c",
+        "type": "ui-slider",
+        "z": "5f7d05320f95558c",
+        "group": "347bb717cccaa3c2",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 350,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f64dd7025f9d6eae",
+        "type": "ui-gauge",
+        "z": "5f7d05320f95558c",
+        "name": "",
+        "group": "347bb717cccaa3c2",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "4095",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7561245e97fcd36c",
+        "type": "serial out",
+        "z": "5f7d05320f95558c",
+        "name": "",
+        "serial": "f14e2426011cf988",
+        "x": 500,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "148ed1c76a1579c8",
+        "type": "serial in",
+        "z": "5f7d05320f95558c",
+        "name": "",
+        "serial": "f14e2426011cf988",
+        "x": 230,
+        "y": 620,
+        "wires": [
+            [
+                "8d3caf6f93633f6c",
+                "d3c7fa2d29db402d",
+                "f95f707f9f828064"
+            ]
+        ]
+    },
+    {
+        "id": "8d3caf6f93633f6c",
+        "type": "debug",
+        "z": "5f7d05320f95558c",
+        "name": "debug 62",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d3c7fa2d29db402d",
+        "type": "function",
+        "z": "5f7d05320f95558c",
+        "name": "function 53",
+        "func": "msg.payload = msg.payload.split(\",\")[0];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 620,
+        "wires": [
+            [
+                "f64dd7025f9d6eae"
+            ]
+        ]
+    },
+    {
+        "id": "f95f707f9f828064",
+        "type": "function",
+        "z": "5f7d05320f95558c",
+        "name": "function 54",
+        "func": "msg.payload = msg.payload.split(\",\")[1];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 680,
+        "wires": [
+            [
+                "a0709e7d7afad192"
+            ]
+        ]
+    },
+    {
+        "id": "a0709e7d7afad192",
+        "type": "ui-gauge",
+        "z": "5f7d05320f95558c",
+        "name": "",
+        "group": "347bb717cccaa3c2",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "4095",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "347bb717cccaa3c2",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "95da0080e919a01b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "f14e2426011cf988",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM15",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "95da0080e919a01b",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "60c50bff13f54dba",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "30932f03c7b5a3b7",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "60c50bff13f54dba",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "30932f03c7b5a3b7",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
