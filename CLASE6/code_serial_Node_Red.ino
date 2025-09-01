@@ -1,4 +1,4 @@
-const char msg[30];
+char msg[30];
 unsigned long t = 0;
 void setup() {
   Serial.begin(9600);
@@ -18,7 +18,7 @@ void loop() {
   if(millis()-t >= 5000){
       uint16_t pot1 = analogRead(32);
       uint16_t pot2 = analogRead(35);
-      snprintf(msg,"%d,%d",pot1,pot2);
+      snprintf(msg,30,"%d,%d",pot1,pot2);
       Serial.println(msg);
       t = millis();
     }
